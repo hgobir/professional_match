@@ -37,6 +37,7 @@ public class UserController {
 		return userRepository.findAll();
 	}
 
+
 	@PostMapping
 	@ResponseStatus(HttpStatus.OK)
 	public void create(@RequestBody User user) {
