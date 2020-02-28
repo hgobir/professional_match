@@ -36,7 +36,7 @@ public class UserController {
 		return userRepository.findAll();
 	}
 
-	@PostMapping(consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping
 	@ResponseStatus(HttpStatus.OK)
 	public void create(@RequestBody User user) {
 		userRepository.save(user);
