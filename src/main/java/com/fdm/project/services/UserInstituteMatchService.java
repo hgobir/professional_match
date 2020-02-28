@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.fdm.project.logic.InstitutePreferenceArrayTransformer;
@@ -17,6 +18,7 @@ import com.fdm.project.models.UserInstituteMatch;
 import com.fdm.project.repositories.InstituteRepository;
 import com.fdm.project.repositories.UserRepository;
 
+@Component
 @Service
 public class UserInstituteMatchService {
 	
