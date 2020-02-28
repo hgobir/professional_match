@@ -48,12 +48,10 @@ public class InstituteService {
 	}
 
 
-	private List<Integer> randomiseInstitutePreferences() {
+	protected List<Integer> randomiseInstitutePreferences() {
 		
 		List<Long> userIds = userPreferenceArrayTransformer.validUserIds();
-		
 		long[] userIdsAsArray = userPreferenceArrayTransformer.convertLongListToArray(5, userIds);
-		
 		List<Integer> institutePreference = new ArrayList<>();
 
 		
@@ -67,13 +65,8 @@ public class InstituteService {
 			Integer instituteChoice = Math.toIntExact(value);
 
 			if(!institutePreference.contains(instituteChoice)) {
-				
-				
 				institutePreference.add(instituteChoice);
-				
 			}
-			
-			
 		}	
 		return institutePreference;
 	}

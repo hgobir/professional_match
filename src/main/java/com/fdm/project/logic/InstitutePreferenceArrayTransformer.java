@@ -13,7 +13,7 @@ import com.fdm.project.services.InstituteService;
 
 @Component
 @Configuration
-public class InstitutePreferenceArrayTransformer {
+public class InstitutePreferenceArrayTransformer extends PreferenceArrayTransformer {
 	
 	
 	@Autowired
@@ -46,16 +46,5 @@ public class InstitutePreferenceArrayTransformer {
 		return allInstitutePreferences;
 	}
 	
-	//NEED TO REFACTOR AS DUPLICATED
-	public int[] convertIntegerListToArray(int arrayLength, List<Integer> list) {
-		
-		int[] arrayForm = new int[arrayLength];
-				
-		for(int i = 0; i < list.size(); i++) {
-			
-			arrayForm[i + 1] = list.get(i);	
-		}
-		return arrayForm;	
-	}
 
 }

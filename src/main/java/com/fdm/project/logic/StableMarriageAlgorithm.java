@@ -95,7 +95,7 @@ public class StableMarriageAlgorithm {
 	
 	
 	
-	private boolean isMatchStable(int[][] userPreferences) {
+	protected boolean isMatchStable(int[][] userPreferences) {
 	
 	    for(int m = 0; m < userPreferences.length; m++) {
 	        if(userPreferences[m][userPreferences[m].length - 1] == 0) {
@@ -105,7 +105,7 @@ public class StableMarriageAlgorithm {
 	    return true;
 	}
 	
-	private void togglePreviousUserUnmatchedInd(int previousUser, int[][] malePreferences) {
+	protected void togglePreviousUserUnmatchedInd(int previousUser, int[][] malePreferences) {
 	
 	    for(int l = 0; l < malePreferences.length; l++) {
 	
@@ -116,33 +116,33 @@ public class StableMarriageAlgorithm {
 	    }
 	}
 	
-	private boolean preferenceResolver(int currentUser, int previousUser, int preferredInstitute, int[][] institutePreferences) {
+	protected boolean preferenceResolver(int proposingUser, int currentlyPairedUser, int instituteInQuestion, int[][] institutePreferences) {
 	
-	    int old = 0;
-	    int proposing = 0;
+	    int indexForCurrentlyPairedUser = 0;
+	    int indexForProposingUser = 0;
 	
 	    //go through particular females preference
 	    for(int i = 0; i < institutePreferences.length; i++) {
 	
 	        for(int j = 1; j < institutePreferences[i].length - 1; j++ ) {
 	
-	            if(institutePreferences[i][0] == preferredInstitute) {
+	            if(institutePreferences[i][0] == instituteInQuestion) {
 	
-	                if(institutePreferences[i][j] == previousUser) {
-	                    old = j;
+	                if(institutePreferences[i][j] == currentlyPairedUser) {
+	                    indexForCurrentlyPairedUser = j;
 	                }
 	
-	                if(institutePreferences[i][j] == currentUser) {
-	                    proposing = j;
+	                if(institutePreferences[i][j] == proposingUser) {
+	                    indexForProposingUser = j;
 	                }
 	            }
 	        }
 	    }
 	    //if old pair preferred (higher in preference == lower in index) over proposing return true otherwise return false
-	    return old < proposing;
+	    return indexForCurrentlyPairedUser < indexForProposingUser;
 	}
 	
-	private void toggleInstituteMatchInd(int preferredInstitute, int[][] institutePreferences) {
+	protected void toggleInstituteMatchInd(int preferredInstitute, int[][] institutePreferences) {
 	
 	    for(int i = 0; i < institutePreferences.length; i++) {
 	
@@ -154,7 +154,7 @@ public class StableMarriageAlgorithm {
 	    }
 	}
 	
-	private boolean availabilityFlag(int preferredInstitute, int[][] institutionPreferences) {
+	protected boolean availabilityFlag(int preferredInstitute, int[][] institutionPreferences) {
 	
 	    //go through particular females preference
 	    for(int i = 0; i < institutionPreferences.length; i++) {
