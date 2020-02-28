@@ -15,7 +15,7 @@ import com.fdm.project.services.UserService;
 
 @Component
 @Configuration
-public class UserPreferenceArrayTransformer {
+public class UserPreferenceArrayTransformer extends PreferenceArrayTransformer {
 	
 	
 	@Autowired
@@ -48,18 +48,7 @@ public class UserPreferenceArrayTransformer {
 		return allUserPreferences;
 	}
 	
-	
-	public int[] convertIntegerListToArray(int arrayLength, List<Integer> list) {
 		
-		int[] arrayForm = new int[arrayLength];
-				
-		for(int i = 0; i < list.size(); i++) {
-			
-			arrayForm[i + 1] = list.get(i);	
-		}
-		return arrayForm;	
-	}
-	
 	
 	public long[] convertLongListToArray(int arrayLength, List<Long> list) {
 		
@@ -82,7 +71,7 @@ public class UserPreferenceArrayTransformer {
 	}
 	
 	 
-	private List<Long> convertSetToList(Set<Long> set) {
+	protected List<Long> convertSetToList(Set<Long> set) {
 		
 		List<Long> list = new ArrayList<>();
 		
